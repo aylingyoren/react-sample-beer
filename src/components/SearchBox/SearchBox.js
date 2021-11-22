@@ -5,7 +5,7 @@ import { ReactComponent as Search } from "../../assets/icons/search.svg";
 function SearchBox() {
   return (
     <div className={styles.searchbox}>
-      <input placeholder="Search Beers" />
+      <input className={styles.searchinput} placeholder="Search Beers" />
       <Search />
     </div>
   );
