@@ -1,0 +1,8 @@
+.searchbox {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  cursor: pointer;
+}

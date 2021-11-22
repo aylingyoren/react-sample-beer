@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import SearchPage from './components/SearchPage';
+import SearchPage from "./components/SearchPage";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
-   <>
-   <SearchPage/>
-   </>
+    <>
+      <SearchPage />
+    </>
   );
 }
 
