@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export function useSearchBeers(url) {
+export function useSearchBeers(url: string) {
   const [beerList, setBeerList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -12,10 +12,10 @@ export function useSearchBeers(url) {
       const beers = await request.json();
       setBeerList(beers);
       setLoading(false);
-    } catch (error) {
+    } catch (err) {
       setLoading(false);
-      setError(error.message);
-      throw new Error(error.message);
+      setError(`${err}`);
+      throw new Error(`${err}`);
     }
   }
 

@@ -3,7 +3,7 @@ import BeerList from "../BeerList";
 import PageHeader from "../PageHeader";
 import SearchBox from "../SearchBox";
 
-function SearchPage() {
+function SearchPage(): JSX.Element {
   return (
     <>
       <PageHeader />
