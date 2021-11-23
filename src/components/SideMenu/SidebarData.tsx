@@ -5,13 +5,13 @@ export const SidebarData = [
     {
         title: 'Home',
         path: '/',
-        icon: <AiIcons.AiFillHome />,
+        icon: <AiIcons.AiFillHome size="24px" />,
         class: 'nav-text'
     },
     {
         title: 'Favorites',
         path: '/favorites',
-        icon: <AiIcons.AiFillStar />,
+        icon: <AiIcons.AiFillStar size="24px" />,
         class: 'nav-text'
     },
 ];

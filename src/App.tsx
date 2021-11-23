@@ -11,7 +11,7 @@ function App(): JSX.Element {
       <PageHeader />
         <Routes>
           <Route path="/" element={<SearchPage />} />
-          <Route path="favorites/*" element={<Favorites />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </Router>
     </>

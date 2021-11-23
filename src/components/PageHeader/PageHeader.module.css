@@ -1,8 +1,9 @@
 .header {
   position: relative;
   display: flex;
+  align-items: center;
   gap: 40px;
-  padding: 20px;
+  padding: 15px;
   background-color: #126cc8;
 }
 

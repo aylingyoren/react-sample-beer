@@ -1,7 +1,7 @@
 .searchbox {
+  width: 400px;
   position: relative;
-  margin: 40px 0;
-  left: 40%;
+  margin: 40px auto;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -12,8 +12,13 @@
 }
 
 .searchinput {
-  padding-bottom: 5px;
+  padding: 10px 13px;
   width: 300px;
   border: 0;
   border-bottom: 1px solid #000000;
 }
+
+.searchinput:focus {
+  outline: none;
+}
+
