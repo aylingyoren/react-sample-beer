@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./PageHeader.module.css";
-import { ReactComponent as Menu } from "../../assets/icons/menu.svg";
+import SideMenu from "../SideMenu";
 
 function PageHeader(): JSX.Element {
   return (
     <div className={styles.header}>
-      <Menu className={styles.menu} />
+      <SideMenu />
       <h3 className={styles.header__title}>Beer Header</h3>
       <p className={styles.header__settings}>Settings</p>
     </div>

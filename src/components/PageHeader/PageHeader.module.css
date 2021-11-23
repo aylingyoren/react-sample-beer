@@ -11,10 +11,6 @@
   color: #ffffff;
 }
 
-.menu {
-  cursor: pointer;
-}
-
 .header__settings {
   position: absolute;
   right: 20px;

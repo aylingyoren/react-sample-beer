@@ -19,7 +19,7 @@ function BeerList(): JSX.Element {
     <div>
       {beerList.map((item: Beer) => {
         return (
-          <div style={{ margin: "0 15px" }} key={item.id}>
+          <div style={{ margin: "0 20px" }} key={item.id}>
             <h2>{item.name}</h2>
             <p>{item.tagline}</p>
             <hr />
