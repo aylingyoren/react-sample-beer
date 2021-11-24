@@ -1,5 +1,7 @@
 import { useSearchBeers } from "../../hooks/useSearchPage";
 import { Beer } from "../../interface";
+import BeerCard from "../BeerCard";
+import "./BeerList.css";
 
 function BeerList(): JSX.Element {
   const { beerList, loading, error } = useSearchBeers(
@@ -16,19 +18,23 @@ function BeerList(): JSX.Element {
   }
 
   return (
-    <div>
+    <div className="beer-list">
       {beerList.map((item: Beer) => {
         return (
-          <div style={{ margin: "0 20px" }} key={item.id}>
+          <BeerCard
+            className="beer-card"
+            style={{ margin: "0 20px" }}
+            key={item.id}
+          >
+            <img className="beer-img" src={item.image_url} />
             <h2>{item.name}</h2>
             <p>{item.tagline}</p>
             <hr />
-          </div>
+          </BeerCard>
         );
       })}
     </div>
   );
 }
-
 
 export default BeerList;
