@@ -1,0 +1,49 @@
+.beer-card {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+}
+
+.beer-img {
+  align-self: center;
+  height: 250px;
+}
+
+.beer-plate {
+  position: relative;
+  margin-top: 10px;
+  width: 560px;
+  height: 300px;
+  background-color: #7f7f7f;
+  color: #ffffff;
+}
+
+.beer-name {
+  margin: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.beer-tagline {
+  margin-left: 20px;
+  font-size: 1.5rem;
+}
+
+.beer-btn {
+  position: absolute;
+  bottom: 30px;
+  border: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.beer-open {
+  left: 20px;
+}
+
+.beer-fav {
+  right: 20px;
+}

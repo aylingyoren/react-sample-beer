@@ -1,7 +1,8 @@
 .favorites {
-    padding: 20px;
+  padding: 20px;
 }
 
-h1 {
-    margin: 0;
+.favorites-title {
+  margin: 0;
+  text-align: center;
 }

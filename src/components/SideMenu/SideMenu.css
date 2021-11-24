@@ -1,9 +1,9 @@
 .navbar {
-    background-color: #126cc8;
-    /* height: 80px; */
-    display: flex;
-    justify-content: start;
-    align-items: center;
+  background-color: #126cc8;
+  /* height: 80px; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 /* 
 .navbar a:hover {
@@ -11,72 +11,73 @@
 } */
 
 .link:hover {
-    background-color: #591599;
+  background-color: #591599;
 }
 
 .nav-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    display: none;
-    justify-content: center;
-    height: 100vh;
-    background-color: #126cc8;
-    transition: .8s;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 250px;
+  display: none;
+  justify-content: center;
+  height: 100vh;
+  background-color: #126cc8;
+  transition: 0.8s;
 }
 
 .active {
-    transition: .3s;
-    display: flex;
+  transition: 0.3s;
+  display: flex;
 }
 
 .nav-text {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 8px 30px;
-    list-style: none;
-    height: 60px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 30px;
+  list-style: none;
+  height: 60px;
 }
 
 .nav-text a {
-    text-decoration: none;
-    color: #ffffff;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-radius: 4px;
+  text-decoration: none;
+  color: #ffffff;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
 }
 
 .nav-text a:hover {
-    background-color: #6f28b3;
+  background-color: #6f28b3;
 }
 
 .nav-menu-items {
-    padding-left: 20px;
-    width: 100%;
+  padding-left: 20px;
+  width: 100%;
 }
 
 .navbar-toggle {
-    background-color: #126cc8;
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+  background-color: #126cc8;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .menu-bars:hover {
-    background-color: #6519ac;
-} 
+  background-color: #6519ac;
+}
 
 span {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
 .icon-pd {
-    padding: 5px;
+  padding: 5px;
 }
