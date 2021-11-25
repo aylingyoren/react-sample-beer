@@ -7,7 +7,7 @@ export function useModifyFavorites() {
     setFavorite([...favorite, item]);
   };
 
-  console.log(favorite);
+  // console.log(favorite);
 
   // const removeFromFavorite = (item: Beer, id: number) => {
   //   favorite.find((item, id, arr) => arr.splice(id, 1));

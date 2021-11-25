@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSearchBeers } from "../../hooks/useSearchPage";
 import { useModifyFavorites } from "../../hooks/useModifyFavorites";
 import { Beer } from "../../interface";
@@ -34,7 +35,9 @@ function BeerList(): JSX.Element {
             <div className="beer-plate">
               <h2 className="beer-name">{item.name}</h2>
               <p className="beer-tagline">{item.tagline}</p>
-              <button className="beer-btn beer-open">Open</button>
+              <Link to={`/beerPage/${item.id}`}>
+                <button className="beer-btn beer-open">Open</button>
+              </Link>
               <button onClick={(event: React.MouseEvent<HTMLElement>) => addToFavorite(item)} className="beer-btn beer-fav">
                 {favorite.includes(item) ? "Remove Favorite" : "Favorite"}
               </button>
