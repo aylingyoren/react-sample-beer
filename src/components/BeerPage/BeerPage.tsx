@@ -1,7 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSearchBeers } from '../../hooks/useSearchPage';
-import { Beer } from '../../interface';
+import { Beer } from '../../API/interface';
 import './BeerPage.css';
 
 function BeerPage(): JSX.Element {
@@ -10,11 +10,13 @@ function BeerPage(): JSX.Element {
     const beerId = params.beerId;
 
     // const beerList: never[]
-    const { beerList, loading, error } = useSearchBeers(
+    const { beerList: [beer], loading, error } = useSearchBeers(
         `https://api.punkapi.com/v2/beers/${beerId}`
     );
 
-    console.log(beerList);
+    // if(beer) {console.log(beer)}
+
+    // console.log(beer);
 
     if (loading) {
         return <div> Loading... </div>;
@@ -27,7 +29,13 @@ function BeerPage(): JSX.Element {
     
     return (
         <div className="beer-details">
-            <h1>Worked and the beer name is {beerList.map((item: Beer) => item.id)}</h1>
+           { beer ? 
+           <>
+           <h1>{beer.name}</h1>
+           <p>{beer.tagline}</p>
+           <button>Add to Favorite</button>
+            <Link to='/'> <button>Back</button> </Link>
+            </> : null}
         </div>
     );
 }

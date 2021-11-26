@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearchBeers } from "../../hooks/useSearchPage";
 import { useModifyFavorites } from "../../hooks/useModifyFavorites";
-import { Beer } from "../../interface";
+import { Beer } from "../../API/interface";
 import BeerCard from "../BeerCard";
 import "./BeerList.css";
 

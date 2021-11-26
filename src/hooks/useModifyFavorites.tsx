@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Beer } from "../interface";
+import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
   const [favorite, setFavorite] = useState<Beer[]>([]);
@@ -19,3 +19,21 @@ export function useModifyFavorites() {
     // removeFromFavorite
   }
 }
+
+// API => Component(fetchBeerList{
+//   data
+//   list = data.map(({id, name})=> new Beer({id, name})) 
+//   list = new ListBeer(data) as [{id, name}: Beer] 
+// })
+
+// interface BeerI {
+//   id: string;
+//   name:string;
+// }
+
+// class Beer1 {
+//   constructor(obj: BeerI){
+//     id: string;
+//     name:string;
+//   }
+// }

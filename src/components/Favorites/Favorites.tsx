@@ -1,6 +1,6 @@
 import React from "react";
 import { useModifyFavorites } from "../../hooks/useModifyFavorites";
-import { Beer } from "../../interface";
+import { Beer } from "../../API/interface";
 import "./Favorites.css";
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Beer } from "../../interface";
+import { Beer } from "../../API/interface";
 import "./BeerCard.css";
 
 // specify the props!!!!!
