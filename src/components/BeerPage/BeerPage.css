@@ -1,3 +1,12 @@
 .beer-details {
     margin: 15px;
 }
+
+.beer-img {
+    height: 250px;
+}
+
+.add-fav-btn {
+    display: block;
+    margin-bottom: 10px;
+}
