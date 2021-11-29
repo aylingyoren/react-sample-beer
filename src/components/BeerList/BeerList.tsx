@@ -12,9 +12,10 @@ function BeerList(): JSX.Element {
   );
 
   const { 
+    isFav,
     favorite, 
     addToFavorite, 
-    // removeFromFavorite, 
+    removeFromFavorite, 
   } = useModifyFavorites();
 
   if (loading) {
@@ -38,8 +39,8 @@ function BeerList(): JSX.Element {
               <Link to={`/beerPage/${item.id}`}>
                 <button className="beer-btn beer-open">Open</button>
               </Link>
-              <button onClick={(event: React.MouseEvent<HTMLElement>) => addToFavorite(item)} className="beer-btn beer-fav">
-                {favorite.includes(item) ? "Remove Favorite" : "Favorite"}
+              <button onClick={(event: React.MouseEvent<HTMLElement>) => isFav ? removeFromFavorite(item.id) : addToFavorite(item)} className="beer-btn beer-fav">
+              {favorite.includes(item) ? "Remove Favorite" : "Favorite"}
               </button>
             </div>
           </BeerCard>

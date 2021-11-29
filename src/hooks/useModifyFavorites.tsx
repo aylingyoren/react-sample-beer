@@ -2,21 +2,29 @@ import React, { useState } from "react";
 import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
+  const [isFav, setFav] = useState<boolean>(false);
   const [favorite, setFavorite] = useState<Beer[]>([]);
   const addToFavorite = (item: Beer) => {
+    setFav(true);
     setFavorite([...favorite, item]);
+    localStorage.setItem('favorite', JSON.stringify(item));
   };
 
-  // console.log(favorite);
+  console.log(favorite);
 
-  // const removeFromFavorite = (item: Beer, id: number) => {
-  //   favorite.find((item, id, arr) => arr.splice(id, 1));
-  // };
+  const removeFromFavorite = (id: number) => {
+    setFav(false);
+
+    setFavorite(favorite.filter((item: Beer) => item.id !== id));
+    localStorage.removeItem('favorite');
+  };
+
 
   return {
+    isFav,
     favorite,
     addToFavorite,
-    // removeFromFavorite
+    removeFromFavorite
   }
 }
 
