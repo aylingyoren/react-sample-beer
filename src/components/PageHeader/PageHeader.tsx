@@ -7,7 +7,7 @@ function PageHeader(): JSX.Element {
   return (
     <div className={styles.header}>
       <SideMenu />
-      <h3 className={styles.header__title}>Beer Header</h3>
+      <h3 className={styles.header__title}>Beer Catalog</h3>
     </div>
   );
 }

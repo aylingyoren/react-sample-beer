@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSearchBeers } from '../../hooks/useSearchPage';
 import { useModifyFavorites } from '../../hooks/useModifyFavorites';
@@ -19,7 +19,10 @@ function BeerPage(): JSX.Element {
         favorite, 
         addToFavorite, 
         removeFromFavorite, 
+        FavoriteContext
       } = useModifyFavorites();
+
+      const favoriteContext = useContext(FavoriteContext);
 
     if (loading) {
         return <div> Loading... </div>;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearchBeers } from "../../hooks/useSearchPage";
 import { useModifyFavorites } from "../../hooks/useModifyFavorites";
@@ -15,8 +15,11 @@ function BeerList(): JSX.Element {
     isFav,
     favorite, 
     addToFavorite, 
-    removeFromFavorite, 
+    removeFromFavorite,
+    FavoriteContext 
   } = useModifyFavorites();
+
+  const favoriteContext = useContext(FavoriteContext);
 
   if (loading) {
     return <div> Loading... </div>;

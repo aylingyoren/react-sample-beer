@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
@@ -19,12 +19,14 @@ export function useModifyFavorites() {
     localStorage.removeItem('favorite');
   };
 
+  const FavoriteContext = createContext<Beer[]>(favorite);
 
   return {
     isFav,
     favorite,
     addToFavorite,
-    removeFromFavorite
+    removeFromFavorite,
+    FavoriteContext
   }
 }
 
