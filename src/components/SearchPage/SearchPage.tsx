@@ -8,7 +8,7 @@ function SearchPage(): JSX.Element {
 
   return (
     <>
-      <SearchBox setSearch={setSearch} />
+      <SearchBox setSearch={setSearch} search={search} />
       <BeerList search={search} />
       
       <Outlet />
