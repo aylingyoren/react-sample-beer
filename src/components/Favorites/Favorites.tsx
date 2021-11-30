@@ -10,10 +10,10 @@ function Favorites(): JSX.Element {
     favorite, 
     addToFavorite, 
     removeFromFavorite,
-    FavoriteContext 
+    // FavoriteContext 
   } = useModifyFavorites();
 
-  const favoriteContext = useContext(FavoriteContext);
+  // const favoriteContext = useContext(FavoriteContext);
   
   return (
     <div className="favorites">

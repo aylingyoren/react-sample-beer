@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Beer } from "../API/interface";
 
-export function useSearchBeers(url: string) {
+export function useSearchPage(url: string) {
   const [beerList, setBeerList] = useState<Beer[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

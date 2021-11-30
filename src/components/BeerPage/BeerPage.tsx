@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useSearchBeers } from '../../hooks/useSearchPage';
+import { useSearchPage } from '../../hooks/useSearchPage';
 import { useModifyFavorites } from '../../hooks/useModifyFavorites';
 import { Beer } from '../../API/interface';
 import './BeerPage.css';
@@ -10,7 +10,7 @@ function BeerPage(): JSX.Element {
     const params = useParams();
     const beerId = params.beerId;
 
-    const { beerList: [beer], loading, error } = useSearchBeers(
+    const { beerList: [beer], loading, error } = useSearchPage(
         `https://api.punkapi.com/v2/beers/${beerId}`
     );
 
@@ -19,10 +19,10 @@ function BeerPage(): JSX.Element {
         favorite, 
         addToFavorite, 
         removeFromFavorite, 
-        FavoriteContext
+        // FavoriteContext
       } = useModifyFavorites();
 
-      const favoriteContext = useContext(FavoriteContext);
+    //   const favoriteContext = useContext(FavoriteContext);
 
     if (loading) {
         return <div> Loading... </div>;

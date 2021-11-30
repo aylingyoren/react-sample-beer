@@ -1,25 +1,32 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSearchBeers } from "../../hooks/useSearchPage";
+import { useSearchPage } from "../../hooks/useSearchPage";
 import { useModifyFavorites } from "../../hooks/useModifyFavorites";
 import { Beer } from "../../API/interface";
 import BeerCard from "../BeerCard";
 import "./BeerList.css";
 
-function BeerList(): JSX.Element {
-  const { beerList, loading, error } = useSearchBeers(
+type BeerlistProps = {
+  search: string
+}
+
+function BeerList(props: BeerlistProps): JSX.Element {
+  const { beerList, loading, error } = useSearchPage(
     "https://api.punkapi.com/v2/beers?page=2&per_page=80"
   );
+
+  // const search = props.search;
+  const { search } = props;
 
   const { 
     isFav,
     favorite, 
     addToFavorite, 
     removeFromFavorite,
-    FavoriteContext 
+    // FavoriteContext 
   } = useModifyFavorites();
 
-  const favoriteContext = useContext(FavoriteContext);
+  // const favoriteContext = useContext(FavoriteContext);
 
   if (loading) {
     return <div> Loading... </div>;
@@ -32,7 +39,13 @@ function BeerList(): JSX.Element {
 
   return (
     <div className="beer-list">
-      {beerList.map((item: Beer) => {
+      {beerList.filter(item => {
+        if(search === "") {
+          return item;
+        } else if(item.name.toLowerCase().includes(search.toLowerCase())) {
+          return item;
+        }
+      }).map((item: Beer) => {
         return (
           <BeerCard key={item.id}>
             <img className="beer-img" src={item.image_url} />
