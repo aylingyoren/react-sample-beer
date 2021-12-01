@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
@@ -7,7 +7,7 @@ export function useModifyFavorites() {
   const addToFavorite = (item: Beer) => {
     setFav(true);
     setFavorite([...favorite, item]);
-    localStorage.setItem('favorite', JSON.stringify(item));
+    localStorage.setItem("favorite", JSON.stringify(item));
   };
 
   console.log(favorite);
@@ -16,24 +16,21 @@ export function useModifyFavorites() {
     setFav(false);
 
     setFavorite(favorite.filter((item: Beer) => item.id !== id));
-    localStorage.removeItem('favorite');
+    localStorage.removeItem("favorite");
   };
-
-  const FavoriteContext = createContext<Beer[]>(favorite);
 
   return {
     isFav,
     favorite,
     addToFavorite,
     removeFromFavorite,
-    FavoriteContext
-  }
+  };
 }
 
 // API => Component(fetchBeerList{
 //   data
-//   list = data.map(({id, name})=> new Beer({id, name})) 
-//   list = new ListBeer(data) as [{id, name}: Beer] 
+//   list = data.map(({id, name})=> new Beer({id, name}))
+//   list = new ListBeer(data) as [{id, name}: Beer]
 // })
 
 // interface BeerI {

@@ -1,26 +1,21 @@
 import React, { useContext } from "react";
-import { useModifyFavorites } from "../../hooks/useModifyFavorites";
 import { Beer } from "../../API/interface";
+import { FavoriteContext } from "../../API/FavoriteContext";
 import "./Favorites.css";
 
-
 function Favorites(): JSX.Element {
-  const { 
-    isFav,
-    favorite, 
-    addToFavorite, 
-    removeFromFavorite,
-    // FavoriteContext 
-  } = useModifyFavorites();
+  const [favorite, addToFavorite, removeFromFavorite, isFav] =
+    useContext(FavoriteContext);
+  console.log(favorite);
 
-  // const favoriteContext = useContext(FavoriteContext);
-  
   return (
     <div className="favorites">
       <h1 className="favorites-title">Your Favorite Beers</h1>
-      {/* <ul>{favorite.map((item: Beer) => {
-        <li key={item.id}>{item}</li>
-      })}</ul> */}
+      <ul>
+        {favorite.map((item: Beer) => {
+          <li key={item.id}>{item.name}</li>;
+        })}
+      </ul>
     </div>
   );
 }
