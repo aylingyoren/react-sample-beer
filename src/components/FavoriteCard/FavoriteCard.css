@@ -1,0 +1,50 @@
+.fav-card {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 25px;
+  height: 280px;
+  border: 1px solid rgba(75, 73, 73, 0.1);
+  border-top: none;
+  box-shadow: 0 0 5px rgba(19, 18, 18, 0.5);
+}
+
+.fav-card-img {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  height: 180px;
+}
+
+.fav-card-name {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.fav-card-tagline {
+  margin-top: 5px;
+  color: #bdbdbd;
+}
+
+.fav-card-description {
+  padding-bottom: 100px;
+  width: 800px;
+}
+
+.fav-card-btn {
+  position: absolute;
+  bottom: 30px;
+  padding: 0;
+  border: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.fav-open {
+  left: 25px;
+}
+
+.fav-fav {
+  left: 130px;
+}

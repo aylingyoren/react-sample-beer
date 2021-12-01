@@ -37,7 +37,7 @@ function BeerPage(): JSX.Element {
     <div className="beer-details">
       {beer ? (
         <>
-          <h1 className="beerP-title">{beer.name}</h1>
+          <h1 className="beerP-name">{beer.name}</h1>
           <p className="beerP-tagline">{beer.tagline}</p>
           <button
             onClick={(event: React.MouseEvent<HTMLElement>) =>
@@ -149,8 +149,8 @@ function BeerPage(): JSX.Element {
               </ul>
             </div>
           </div>
-          <Link to="/">
-            {" "}
+          <Link to={isFav ? "/favorites" : "/"}>
+            {/* {" draft solution "} */}
             <button className="beerP-back-btn">Back</button>{" "}
           </Link>
         </>

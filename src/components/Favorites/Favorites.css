@@ -3,6 +3,7 @@
 }
 
 .favorites-title {
-  margin: 0;
+  padding-bottom: 20px;
+  font-size: 2.5rem;
   text-align: center;
 }

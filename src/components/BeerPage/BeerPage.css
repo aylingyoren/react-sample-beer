@@ -1,113 +1,113 @@
 ul {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
 }
 
 .beer-details {
-    margin: 50px;
+  margin: 50px;
 }
 
 .beerP-img {
-    position: absolute;
-    top: 110px;
-    right: 400px;
-    height: 250px;
+  position: absolute;
+  top: 110px;
+  right: 400px;
+  height: 250px;
 }
 
 .beerP-fav-btn,
 .beerP-back-btn {
-    padding: 10px 15px;
-    display: block;
-    margin-bottom: 10px;
-    border: none;
-    background-color: #126cc8;
-    box-shadow: 0 0 5px rgba(19, 18, 18, 0.5);
-    text-transform: uppercase;
-    color: #ffffff;
-    cursor: pointer;
+  padding: 10px 15px;
+  display: block;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #126cc8;
+  box-shadow: 0 0 5px rgba(19, 18, 18, 0.5);
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.beerP-title {
-    margin: 0;
-    font-size: 2.5rem;
+.beerP-name {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
 .beerP-tagline {
-    margin-top: 5px;
-    font-style: italic;
-    color: #808080;
+  margin-top: 5px;
+  font-style: italic;
+  color: #808080;
 }
 
 .beerP-description,
 .beerP-brewing-text {
-    width: 800px;
+  width: 800px;
 }
 
 .beerP-propFoodP,
 .beerP-ingredMeth {
-    display: flex;
-    gap: 120px;
+  display: flex;
+  gap: 120px;
 }
 
 .beerP-properties,
 .beerP-foods,
 .beerP-ingredients {
-    position: relative;
-    width: 300px;
+  position: relative;
+  width: 300px;
 }
 
 .beerP-h3 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .beerP-properties-row,
 .beerP-foods-value,
 .beerP-ingredients-row {
-    padding: 10px ;
-    border: 1px solid #bebebe;
-    font-weight: bold;
+  padding: 10px;
+  border: 1px solid #bebebe;
+  font-weight: bold;
 }
 
 .beerP-properties-row:first-of-type,
-.beerP-properties-row:nth-last-of-type(2), 
+.beerP-properties-row:nth-last-of-type(2),
 .beerP-foods-value:first-of-type,
 .beerP-foods-value:nth-last-of-type(2),
 .beerP-ingredients-row:first-of-type,
 .beerP-ingredients-row:nth-last-of-type(2) {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-.beerP-properties-row:first-of-type, 
+.beerP-properties-row:first-of-type,
 .beerP-foods-value:first-of-type,
 .beerP-ingredients-row:first-of-type {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
-.beerP-properties-row:last-of-type, 
+.beerP-properties-row:last-of-type,
 .beerP-foods-value:last-of-type,
 .beerP-ingredients-row:last-of-type {
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .beerP-properties-value {
-    position: absolute;
-    right: 10px;
-    padding: 3px 10px;
-    background-color: #696969;
-    border-radius: 10px;
-    color: #ffffff;
+  position: absolute;
+  right: 10px;
+  padding: 3px 10px;
+  background-color: #696969;
+  border-radius: 10px;
+  color: #ffffff;
 }
 
 .beerP-foods-value {
-    padding: 15px 20px;
-    width: 380px;
-    font-weight: lighter;
+  padding: 15px 20px;
+  width: 380px;
+  font-weight: lighter;
 }
 
 .beerP-brewing-header {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 /* .beerP-ingredients-row {
@@ -115,20 +115,20 @@ ul {
 } */
 
 .beerP-method-row ul {
-    margin-bottom: 20px;
-    font-weight: bold;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .beerP-ingredients-row li,
 .beerP-method-row li {
-    margin: 5px 0;
-    font-weight: lighter;
-    color: #585858;
+  margin: 5px 0;
+  font-weight: lighter;
+  color: #585858;
 }
 
 .beerP-back-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 50px;
-    margin-top: 25px;
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  margin-top: 25px;
 }
