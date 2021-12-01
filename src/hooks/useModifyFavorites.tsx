@@ -7,16 +7,20 @@ export function useModifyFavorites() {
   const addToFavorite = (item: Beer) => {
     setFav(true);
     setFavorite([...favorite, item]);
-    localStorage.setItem("favorite", JSON.stringify(item));
+    localStorage.setItem(`${item.id}`, JSON.stringify(item));
   };
 
   console.log(favorite);
+
+  // favorite.map((item) =>
+  //   localStorage.setItem(`${item.id}`, JSON.stringify(item))
+  // );
 
   const removeFromFavorite = (id: number) => {
     setFav(false);
 
     setFavorite(favorite.filter((item: Beer) => item.id !== id));
-    localStorage.removeItem("favorite");
+    localStorage.removeItem(`${id}`);
   };
 
   return {
