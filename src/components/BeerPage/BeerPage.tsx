@@ -45,7 +45,7 @@ function BeerPage(): JSX.Element {
             }
             className="beerP-fav-btn"
           >
-            {favorite.includes(beer)
+            {favorite.find(el => el.id === beer.id)
               ? "Remove from Favorite"
               : "Add to Favorite"}
           </button>

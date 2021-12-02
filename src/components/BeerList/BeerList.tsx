@@ -56,7 +56,7 @@ function BeerList(props: BeerlistProps): JSX.Element {
                   }
                   className="beer-btn beer-fav"
                 >
-                  {favorite.includes(item) ? "Remove Favorite" : "Favorite"}
+                  {favorite.find(el => el.id === item.id) ? "Remove Favorite" : "Favorite"}
                 </button>
               </div>
             </BeerCard>
