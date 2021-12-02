@@ -12,7 +12,15 @@ function Favorites(): JSX.Element {
   );
   // "https://api.punkapi.com/v2/beers?page=2&per_page=80"
 
-  const [favorite, addToFavorite, removeFromFavorite, isFav] =
+  // const items = { ...localStorage };
+  // const items = JSON.parse(JSON.stringify(localStorage));
+  // console.log(items);
+  
+  // for (let [key, value] of Object.entries(localStorage)) {
+  //   console.log(`${key}: ${value}`);
+  // }
+
+  const [favorite, addToFavorite, removeFromFavorite,] =
     useContext(FavoriteContext);
   console.log(favorite);
 
@@ -41,7 +49,7 @@ function Favorites(): JSX.Element {
               </Link>
               <button
                 onClick={(event: React.MouseEvent<HTMLElement>) =>
-                  isFav ? removeFromFavorite(item.id) : addToFavorite(item)
+                  item.isFav ? removeFromFavorite(item.id) : addToFavorite(item)
                 }
                 className="fav-card-btn fav-fav"
               >

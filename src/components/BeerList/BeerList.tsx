@@ -17,7 +17,7 @@ function BeerList(props: BeerlistProps): JSX.Element {
 
   const { search } = props;
 
-  const [favorite, addToFavorite, removeFromFavorite, isFav] =
+  const [favorite, addToFavorite, removeFromFavorite,] =
     useContext(FavoriteContext);
   console.log(favorite);
 
@@ -52,7 +52,7 @@ function BeerList(props: BeerlistProps): JSX.Element {
                 </Link>
                 <button
                   onClick={(event: React.MouseEvent<HTMLElement>) =>
-                    isFav ? removeFromFavorite(item.id) : addToFavorite(item)
+                    item.isFav ? removeFromFavorite(item.id) : addToFavorite(item)
                   }
                   className="beer-btn beer-fav"
                 >

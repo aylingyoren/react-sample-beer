@@ -9,13 +9,13 @@ import BeerPage from "./components/BeerPage";
 import "./App.css";
 
 function App(): JSX.Element {
-  const { favorite, addToFavorite, removeFromFavorite, isFav } =
+  const { favorite, addToFavorite, removeFromFavorite, } =
     useModifyFavorites();
 
   return (
     <>
       <FavoriteContext.Provider
-        value={[favorite, addToFavorite, removeFromFavorite, isFav]}
+        value={[favorite, addToFavorite, removeFromFavorite,]}
       >
         <Router>
           <PageHeader />

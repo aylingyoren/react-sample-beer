@@ -5,12 +5,10 @@ type FavoriteContext = [
   Beer[],
   (item: Beer) => void,
   (id: number) => void,
-  boolean
 ];
 
 export const FavoriteContext = createContext<FavoriteContext>([
   [],
   () => null,
   () => null,
-  false,
 ]);
