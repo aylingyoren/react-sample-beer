@@ -41,7 +41,7 @@ function BeerPage(): JSX.Element {
           <p className="beerP-tagline">{beer.tagline}</p>
           <button
             onClick={(event: React.MouseEvent<HTMLElement>) =>
-              beer.isFav ? removeFromFavorite(beer.id) : addToFavorite(beer)
+              beer.isFav ? removeFromFavorite(beer, beer.id) : addToFavorite(beer)
             }
             className="beerP-fav-btn"
           >
@@ -149,8 +149,7 @@ function BeerPage(): JSX.Element {
               </ul>
             </div>
           </div>
-          <Link to={favorite.includes(beer) ? "/favorites" : "/"}>
-            {/* {" draft solution "} */}
+          <Link to="/">
             <button className="beerP-back-btn">Back</button>{" "}
           </Link>
         </>

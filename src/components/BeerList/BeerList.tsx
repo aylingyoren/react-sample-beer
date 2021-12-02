@@ -52,7 +52,7 @@ function BeerList(props: BeerlistProps): JSX.Element {
                 </Link>
                 <button
                   onClick={(event: React.MouseEvent<HTMLElement>) =>
-                    item.isFav ? removeFromFavorite(item.id) : addToFavorite(item)
+                    item.isFav ? removeFromFavorite(item, item.id) : addToFavorite(item)
                   }
                   className="beer-btn beer-fav"
                 >

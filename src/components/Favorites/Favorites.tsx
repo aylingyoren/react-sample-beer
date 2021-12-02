@@ -49,7 +49,7 @@ function Favorites(): JSX.Element {
               </Link>
               <button
                 onClick={(event: React.MouseEvent<HTMLElement>) =>
-                  item.isFav ? removeFromFavorite(item.id) : addToFavorite(item)
+                  item.isFav ? removeFromFavorite(item, item.id) : addToFavorite(item)
                 }
                 className="fav-card-btn fav-fav"
               >

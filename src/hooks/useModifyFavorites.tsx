@@ -9,13 +9,14 @@ export function useModifyFavorites() {
     localStorage.setItem(`${item.id}`, JSON.stringify(item));
   };
 
-  console.log(favorite);
+  // console.log(favorite);
 
   // favorite.map((item) =>
   //   localStorage.setItem(`${item.id}`, JSON.stringify(item))
   // );
 
-  const removeFromFavorite = (id: number) => {
+  const removeFromFavorite = (item: Beer, id: number) => {
+    item.isFav = false;
     setFavorite(favorite.filter((item: Beer) => item.id !== id));
     localStorage.removeItem(`${id}`);
   };
