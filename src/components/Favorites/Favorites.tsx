@@ -12,15 +12,7 @@ function Favorites(): JSX.Element {
   );
   // "https://api.punkapi.com/v2/beers?page=2&per_page=80"
 
-  // const items = { ...localStorage };
-  // const items = JSON.parse(JSON.stringify(localStorage));
-  // console.log(items);
-  
-  // for (let [key, value] of Object.entries(localStorage)) {
-  //   console.log(`${key}: ${value}`);
-  // }
-
-  const [favorite, addToFavorite, removeFromFavorite,] =
+  const [favorite, addToFavorite, removeFromFavorite, setFavorite] =
     useContext(FavoriteContext);
   console.log(favorite);
 

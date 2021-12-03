@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useModifyFavorites } from "./hooks/useModifyFavorites";
 import { FavoriteContext } from "./API/FavoriteContext";
@@ -9,13 +9,22 @@ import BeerPage from "./components/BeerPage";
 import "./App.css";
 
 function App(): JSX.Element {
-  const { favorite, addToFavorite, removeFromFavorite, } =
+  const { favorite, addToFavorite, removeFromFavorite, setFavorite } =
     useModifyFavorites();
+
+  
+  useEffect(() => {
+    const favorites = localStorage.getItem("favorites");
+    if(favorites) {
+      setFavorite(JSON.parse(favorites));
+    }
+
+  }, []);
 
   return (
     <>
       <FavoriteContext.Provider
-        value={[favorite, addToFavorite, removeFromFavorite,]}
+        value={[favorite, addToFavorite, removeFromFavorite, setFavorite]}
       >
         <Router>
           <PageHeader />

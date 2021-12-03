@@ -5,26 +5,25 @@ export function useModifyFavorites() {
   const [favorite, setFavorite] = useState<Beer[]>([]);
   const addToFavorite = (item: Beer) => {
     item.isFav = true;
-    setFavorite([...favorite, item]);
-    localStorage.setItem(`${item.id}`, JSON.stringify(item));
+    const newFavs = [...favorite, item];
+    setFavorite(newFavs);
+    localStorage.setItem("favorites", JSON.stringify(newFavs));
   };
 
   // console.log(favorite);
 
-  // favorite.map((item) =>
-  //   localStorage.setItem(`${item.id}`, JSON.stringify(item))
-  // );
-
   const removeFromFavorite = (item: Beer, id: number) => {
     item.isFav = false;
-    setFavorite(favorite.filter((item: Beer) => item.id !== id));
-    localStorage.removeItem(`${id}`);
+    const newFavs = favorite.filter((item: Beer) => item.id !== id);
+    setFavorite(newFavs);
+    localStorage.setItem("favorites", JSON.stringify(newFavs));
   };
 
   return {
     favorite,
     addToFavorite,
     removeFromFavorite,
+    setFavorite
   };
 }
 
