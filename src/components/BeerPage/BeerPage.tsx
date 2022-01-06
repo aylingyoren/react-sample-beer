@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate  } from "react-router-dom";
 import { useSearchPage } from "../../hooks/useSearchPage";
 import { Beer } from "../../API/interface";
 import { FavoriteContext } from "../../API/FavoriteContext";
@@ -8,6 +8,8 @@ import "./BeerPage.css";
 function BeerPage(): JSX.Element {
   const params = useParams();
   const beerId = params.beerId;
+
+  const navigate = useNavigate();
 
   const {
     beerList: [beer],
@@ -149,9 +151,7 @@ function BeerPage(): JSX.Element {
               </ul>
             </div>
           </div>
-          <Link to="/">
-            <button className="beerP-back-btn">Back</button>{" "}
-          </Link>
+            <button className="beerP-back-btn" onClick={() => navigate(-1)}>Back</button>{" "}
         </>
       ) : null}
     </div>

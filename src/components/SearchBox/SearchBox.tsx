@@ -20,7 +20,7 @@ function SearchBox(props: SearchBoxProps): JSX.Element {
         {props.search.length === 0 ? (
           <Search className={styles.search} />
         ) : (
-          <AiOutlineClose size="24px" className={styles.closeIcon} onClick={clearInput} />
+          <AiOutlineClose role="button" tabIndex={0} size="24px" className={styles.closeIcon} onClick={clearInput} />
         ) }
         
       </div>
