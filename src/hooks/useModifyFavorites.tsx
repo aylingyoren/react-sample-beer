@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
 import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
@@ -18,6 +18,8 @@ export function useModifyFavorites() {
     setFavorite(newFavs);
     localStorage.setItem("favorites", JSON.stringify(newFavs));
   };
+
+  useDebugValue(favorite ?? 'loading...');
 
   return {
     favorite,

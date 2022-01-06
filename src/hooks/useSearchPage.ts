@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDebugValue } from "react";
 import { Beer } from "../API/interface";
 
 export function useSearchPage(url: string) {
@@ -23,6 +23,8 @@ export function useSearchPage(url: string) {
   useEffect(() => {
     getBeers();
   }, []);
+
+  useDebugValue(beerList ?? 'loading...');
 
   return {
     beerList,
