@@ -7,7 +7,6 @@ import "./BeerPage.css";
 function BeerPage(): JSX.Element {
   const params = useParams();
   const beerId = params.beerId;
-
   const navigate = useNavigate();
 
   const {
@@ -40,7 +39,7 @@ function BeerPage(): JSX.Element {
           <p className="beerP-tagline">{beer.tagline}</p>
           <button
             onClick={() =>
-              beer.isFav
+              favorite?.find((el) => el.id === beer.id)?.isFav
                 ? removeFromFavorite(beer, beer.id)
                 : addToFavorite(beer)
             }

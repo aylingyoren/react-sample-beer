@@ -5,7 +5,6 @@ import { Beer } from "../../API/interface";
 import "./BeerCard.css";
 
 type BeerCardProps = {
-  key: number;
   item: Beer;
 };
 
@@ -26,7 +25,9 @@ function BeerCard(props: BeerCardProps): JSX.Element {
         </Link>
         <button
           onClick={() =>
-            item.isFav ? removeFromFavorite(item, item.id) : addToFavorite(item)
+            favorite?.find((el) => el.id === item.id)?.isFav
+              ? removeFromFavorite(item, item.id)
+              : addToFavorite(item)
           }
           className="beer-btn beer-fav"
         >

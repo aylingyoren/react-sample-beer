@@ -7,7 +7,6 @@ import FavoriteCard from "../FavoriteCard";
 
 function Favorites(): JSX.Element {
   const { loading, error } = useSearchPage("https://api.punkapi.com/v2/beers");
-  // "https://api.punkapi.com/v2/beers?page=2&per_page=80"
 
   const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
@@ -46,7 +45,9 @@ function Favorites(): JSX.Element {
                 }
                 className="fav-card-btn fav-fav"
               >
-                {favorite.includes(item) ? "Remove Favorite" : "Favorite"}
+                {favorite.find((el) => el.id === item.id)
+                  ? "Remove Favorite"
+                  : "Favorite"}
               </button>
             </div>
           </FavoriteCard>

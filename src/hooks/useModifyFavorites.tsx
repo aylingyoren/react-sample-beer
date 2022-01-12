@@ -3,6 +3,7 @@ import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
   const [favorite, setFavorite] = useState<Beer[]>([]);
+
   const addToFavorite = (item: Beer) => {
     item.isFav = true;
     const newFavs = [...favorite, item];
