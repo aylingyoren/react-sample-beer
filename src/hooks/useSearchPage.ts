@@ -24,7 +24,7 @@ export function useSearchPage(url: string) {
     getBeers();
   }, []);
 
-  useDebugValue(beerList ?? 'loading...');
+  useDebugValue(beerList ?? "loading...");
 
   return {
     beerList,

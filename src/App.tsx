@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useModifyFavorites } from "./hooks/useModifyFavorites";
 import { FavoriteContext } from "./API/FavoriteContext";
@@ -12,13 +12,11 @@ function App(): JSX.Element {
   const { favorite, addToFavorite, removeFromFavorite, setFavorite } =
     useModifyFavorites();
 
-  
   useEffect(() => {
     const favorites = localStorage.getItem("favorites");
-    if(favorites) {
+    if (favorites) {
       setFavorite(JSON.parse(favorites));
     }
-
   }, []);
 
   return (

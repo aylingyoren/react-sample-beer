@@ -19,27 +19,19 @@ function BeerList(props: BeerListProps): JSX.Element {
   }
 
   if (error) {
-    console.log("Error occured fetching data!");
     return <div> Error occured </div>;
   }
 
   return (
     <div className="beer-list">
       {beerList
-        .filter((item) => {
-          if (search === "") {
-            return item;
-          } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
-            return item;
-          }
-        })
+        .filter(
+          (item) =>
+            search === "" ||
+            item.name.toLowerCase().includes(search.toLowerCase())
+        )
         .map((item: Beer) => {
-          return (
-            <BeerCard 
-              key={item.id}
-              item={item}
-            />
-          );
+          return <BeerCard key={item.id} item={item} />;
         })}
     </div>
   );

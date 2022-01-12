@@ -1,7 +1,5 @@
-import React from "react";
 import SideMenu from "../SideMenu";
 import styles from "./PageHeader.module.css";
-
 
 function PageHeader(): JSX.Element {
   return (

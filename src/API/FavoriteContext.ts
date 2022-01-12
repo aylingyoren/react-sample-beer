@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import { Beer } from "./interface";
 
 type FavoriteContext = [
@@ -12,5 +12,5 @@ export const FavoriteContext = createContext<FavoriteContext>([
   [],
   () => null,
   () => null,
-  () => null
+  () => null,
 ]);

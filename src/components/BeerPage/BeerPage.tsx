@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
-import { useParams, Link, useNavigate  } from "react-router-dom";
+import { useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSearchPage } from "../../hooks/useSearchPage";
-import { Beer } from "../../API/interface";
 import { FavoriteContext } from "../../API/FavoriteContext";
 import "./BeerPage.css";
 
@@ -17,16 +16,14 @@ function BeerPage(): JSX.Element {
     error,
   } = useSearchPage(`https://api.punkapi.com/v2/beers/${beerId}`);
 
-  const [favorite, addToFavorite, removeFromFavorite,] =
+  const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
-  console.log(favorite);
 
   if (loading) {
     return <div> Loading... </div>;
   }
 
   if (error) {
-    console.log("Error occured fetching data!");
     return <div> Error occured </div>;
   }
 
@@ -42,12 +39,14 @@ function BeerPage(): JSX.Element {
           <h1 className="beerP-name">{beer.name}</h1>
           <p className="beerP-tagline">{beer.tagline}</p>
           <button
-            onClick={(event: React.MouseEvent<HTMLElement>) =>
-              beer.isFav ? removeFromFavorite(beer, beer.id) : addToFavorite(beer)
+            onClick={() =>
+              beer.isFav
+                ? removeFromFavorite(beer, beer.id)
+                : addToFavorite(beer)
             }
             className="beerP-fav-btn"
           >
-            {favorite.find(el => el.id === beer.id)
+            {favorite.find((el) => el.id === beer.id)
               ? "Remove from Favorite"
               : "Add to Favorite"}
           </button>
@@ -151,7 +150,9 @@ function BeerPage(): JSX.Element {
               </ul>
             </div>
           </div>
-            <button className="beerP-back-btn" onClick={() => navigate(-1)}>Back</button>{" "}
+          <button className="beerP-back-btn" onClick={() => navigate(-1)}>
+            Back
+          </button>{" "}
         </>
       ) : null}
     </div>
@@ -159,6 +160,3 @@ function BeerPage(): JSX.Element {
 }
 
 export default BeerPage;
-
-// const getBeer = (number: number) => beerList.find((item: Beer) => item.id === number);
-// let beer = getBeer(parseInt(params.beerId as string, 10));

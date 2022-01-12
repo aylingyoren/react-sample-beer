@@ -1,4 +1,4 @@
-import React, { useDebugValue, useState } from "react";
+import { useDebugValue, useState } from "react";
 import { Beer } from "../API/interface";
 
 export function useModifyFavorites() {
@@ -10,8 +10,6 @@ export function useModifyFavorites() {
     localStorage.setItem("favorites", JSON.stringify(newFavs));
   };
 
-  // console.log(favorite);
-
   const removeFromFavorite = (item: Beer, id: number) => {
     item.isFav = false;
     const newFavs = favorite.filter((item: Beer) => item.id !== id);
@@ -19,13 +17,13 @@ export function useModifyFavorites() {
     localStorage.setItem("favorites", JSON.stringify(newFavs));
   };
 
-  useDebugValue(favorite ?? 'loading...');
+  useDebugValue(favorite ?? "loading...");
 
   return {
     favorite,
     addToFavorite,
     removeFromFavorite,
-    setFavorite
+    setFavorite,
   };
 }
 
