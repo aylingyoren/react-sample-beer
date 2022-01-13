@@ -2,14 +2,12 @@ import { useContext } from "react";
 import { useSearchPage } from "../../hooks/useSearchPage";
 import { FavoriteContext } from "../../API/FavoriteContext";
 import "./Favorites.css";
-import { Link } from "react-router-dom";
 import FavoriteCard from "../FavoriteCard";
 
 function Favorites(): JSX.Element {
   const { loading, error } = useSearchPage("https://api.punkapi.com/v2/beers");
 
-  const [favorite, addToFavorite, removeFromFavorite] =
-    useContext(FavoriteContext);
+  const [favorite] = useContext(FavoriteContext);
 
   if (loading) {
     return <div> Loading... </div>;
@@ -24,33 +22,7 @@ function Favorites(): JSX.Element {
       <h1 className="favorites-title">Your Favorite Beers</h1>
       <ul>
         {favorite.map((item) => (
-          <FavoriteCard key={item.id}>
-            <div className="fav-card">
-              <img
-                className="fav-card-img"
-                src={item.image_url}
-                alt={item.name}
-              />
-              <h2 className="fav-card-name">{item.name}</h2>
-              <p className="fav-card-tagline">{item.tagline}</p>
-              <p className="fav-card-description">{item.description}</p>
-              <Link to={`/beerPage/${item.id}`}>
-                <button className="fav-card-btn fav-open">Open</button>
-              </Link>
-              <button
-                onClick={() =>
-                  item.isFav
-                    ? removeFromFavorite(item, item.id)
-                    : addToFavorite(item)
-                }
-                className="fav-card-btn fav-fav"
-              >
-                {favorite.find((el) => el.id === item.id)
-                  ? "Remove Favorite"
-                  : "Favorite"}
-              </button>
-            </div>
-          </FavoriteCard>
+          <FavoriteCard key={item.id} item={item} />
         ))}
       </ul>
     </div>

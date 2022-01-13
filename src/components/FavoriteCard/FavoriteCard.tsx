@@ -1,9 +1,42 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FavoriteContext } from "../../API/FavoriteContext";
+import { Beer } from "../../API/interface";
 import "./FavoriteCard.css";
 
-// type props
+type FavoriteCardProps = {
+  item: Beer;
+};
 
-function FavoriteCard(props: any) {
-  return <div>{props.children}</div>;
+function FavoriteCard(props: FavoriteCardProps): JSX.Element {
+  const [favorite, addToFavorite, removeFromFavorite] =
+    useContext(FavoriteContext);
+
+  const { item } = props;
+
+  return (
+    <div>
+      <div className="fav-card">
+        <img className="fav-card-img" src={item.image_url} alt={item.name} />
+        <h2 className="fav-card-name">{item.name}</h2>
+        <p className="fav-card-tagline">{item.tagline}</p>
+        <p className="fav-card-description">{item.description}</p>
+        <Link to={`/beerPage/${item.id}`}>
+          <button className="fav-card-btn fav-open">Open</button>
+        </Link>
+        <button
+          onClick={() =>
+            item.isFav ? removeFromFavorite(item, item.id) : addToFavorite(item)
+          }
+          className="fav-card-btn fav-fav"
+        >
+          {favorite.find((el) => el.id === item.id)
+            ? "Remove Favorite"
+            : "Favorite"}
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default FavoriteCard;
