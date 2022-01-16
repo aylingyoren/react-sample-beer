@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import { SidebarData } from "./SidebarData";
@@ -9,10 +9,49 @@ import "./SideMenu.css";
 function SideMenu(): JSX.Element {
   const [sidebar, setSidebar] = useState(false);
 
-  const toggleSidebar = () => setSidebar((prevValue) => !prevValue);
+  const wrapper: HTMLElement | any = useRef();
+  console.log(wrapper);
+
+  function addOutsideClickListener() {
+    document.addEventListener("click", handleDocumentClick);
+  }
+
+  function removeOutsideClickListender() {
+    document.removeEventListener("click", handleDocumentClick);
+  }
+
+  function onShow() {
+    addOutsideClickListener();
+  }
+
+  function onHide() {
+    removeOutsideClickListender();
+  }
+
+  function onClickOutside() {
+    setSidebar(false);
+  }
+
+  const handleDocumentClick = (e: any) => {
+    if (wrapper && wrapper.current && !wrapper.current.contains(e.target)) {
+      onClickOutside();
+    }
+  };
+
+  const toggleSidebar = () => {
+    setSidebar((prevValue) => !prevValue);
+    sidebar ? onShow() : onHide();
+  };
+
+  useEffect(() => {
+    addOutsideClickListener();
+    return () => {
+      removeOutsideClickListender();
+    };
+  }, []);
 
   return (
-    <>
+    <div ref={wrapper}>
       <IconContext.Provider value={{ color: "#ffffff", size: "30px" }}>
         <div className="navbar">
           <Link className="link" to="#">
@@ -26,9 +65,9 @@ function SideMenu(): JSX.Element {
                 <AiIcons.AiOutlineClose className="close-btn icon-pd" />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
+            {SidebarData.map((item) => {
               return (
-                <li key={index} className={item.class}>
+                <li key={item.title} className={item.class}>
                   <Link to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
@@ -39,7 +78,7 @@ function SideMenu(): JSX.Element {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </div>
   );
 }
 export default SideMenu;
