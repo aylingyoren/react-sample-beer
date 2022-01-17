@@ -18,6 +18,9 @@ function BeerPage(): JSX.Element {
   const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
 
+  // const favorite = useSelector((state: RootState) => state.favorites.favorite);
+  // const dispatch: AppDispatch = useDispatch();
+
   if (loading) {
     return <div> Loading... </div>;
   }

@@ -10,7 +10,6 @@ function SideMenu(): JSX.Element {
   const [sidebar, setSidebar] = useState(false);
 
   const wrapper: HTMLElement | any = useRef();
-  console.log(wrapper);
 
   function addOutsideClickListener() {
     document.addEventListener("click", handleDocumentClick);
@@ -28,13 +27,9 @@ function SideMenu(): JSX.Element {
     removeOutsideClickListender();
   }
 
-  function onClickOutside() {
-    setSidebar(false);
-  }
-
-  const handleDocumentClick = (e: any) => {
+  const handleDocumentClick = (e: Event) => {
     if (wrapper && wrapper.current && !wrapper.current.contains(e.target)) {
-      onClickOutside();
+      setSidebar(false);
     }
   };
 
