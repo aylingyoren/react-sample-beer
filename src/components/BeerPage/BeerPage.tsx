@@ -3,11 +3,18 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSearchPage } from "../../hooks/useSearchPage";
 import { FavoriteContext } from "../../API/FavoriteContext";
 import "./BeerPage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useTypedSelector } from "../../redux/useTypedSelector";
+import { Beer } from "../../API/interface";
+import { FavoriteActionTypes } from "../../redux/favoriteTypes";
 
 function BeerPage(): JSX.Element {
   const params = useParams();
   const beerId = params.beerId;
   const navigate = useNavigate();
+  
+  const dispatch = useDispatch();
+  const favorite = useTypedSelector(state => state.favorites)
 
   const {
     beerList: [beer],
@@ -15,11 +22,8 @@ function BeerPage(): JSX.Element {
     error,
   } = useSearchPage(`https://api.punkapi.com/v2/beers/${beerId}`);
 
-  const [favorite, addToFavorite, removeFromFavorite] =
-    useContext(FavoriteContext);
-
-  // const favorite = useSelector((state: RootState) => state.favorites.favorite);
-  // const dispatch: AppDispatch = useDispatch();
+  // const [favorite, addToFavorite, removeFromFavorite] =
+  //   useContext(FavoriteContext);
 
   if (loading) {
     return <div> Loading... </div>;
@@ -28,6 +32,19 @@ function BeerPage(): JSX.Element {
   if (error) {
     return <div> Error occured </div>;
   }
+
+  const addToFavorite = (fav: Beer) => {
+    dispatch({type: FavoriteActionTypes.ADD_TO_FAVORITES, payload: fav});
+    console.log(fav)
+  }
+
+  //fix it
+  const removeFromFavorite = (fav: Beer) => {
+    dispatch({type: FavoriteActionTypes.ADD_TO_FAVORITES, payload: fav.id});
+    console.log(fav)
+  }
+
+  console.log(favorite)
 
   // Properties is beer's properties section.
   // It shows only ABV, IBU and EBC.
@@ -43,7 +60,7 @@ function BeerPage(): JSX.Element {
           <button
             onClick={() =>
               favorite?.find((el) => el.id === beer.id)?.isFav
-                ? removeFromFavorite(beer, beer.id)
+                ? removeFromFavorite(beer)
                 : addToFavorite(beer)
             }
             className="beerP-fav-btn"
