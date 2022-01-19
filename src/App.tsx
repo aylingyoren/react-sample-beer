@@ -6,6 +6,7 @@ import SearchPage from "./components/SearchPage";
 import Favorites from "./components/Favorites";
 import PageHeader from "./components/PageHeader";
 import BeerPage from "./components/BeerPage";
+import { FavoriteActionTypes } from "./redux/favoriteTypes";
 import "./App.css";
 
 function App(): JSX.Element {
@@ -15,10 +16,11 @@ function App(): JSX.Element {
   useEffect(() => {
     const favorites = localStorage.getItem("favorites");
     if (favorites) {
-      // dispatch({
-      //   type: FavoriteActionTypes.ADD_TO_FAVORITES,
-      //   payload: JSON.parse(favorites),
-      // });
+      console.log(favorites);
+      dispatch({
+        type: FavoriteActionTypes.ADD_TO_FAVORITES,
+        payload: JSON.parse(favorites),
+      });
       // setFavorite(JSON.parse(favorites));
     }
   }, []);
