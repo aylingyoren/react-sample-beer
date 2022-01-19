@@ -1,8 +1,7 @@
-import { useDispatch } from "react-redux";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FavoriteContext } from "../../API/FavoriteContext";
 import { Beer } from "../../API/interface";
-import { FavoriteActionTypes } from "../../redux/favoriteTypes";
-import { useTypedSelector } from "../../redux/useTypedSelector";
 import "./BeerCard.css";
 
 type BeerCardProps = {
@@ -10,21 +9,8 @@ type BeerCardProps = {
 };
 
 function BeerCard(props: BeerCardProps): JSX.Element {
-  const dispatch = useDispatch();
-  const favorite = useTypedSelector((state) => state.favorites);
-
-  const addToFavorite = (fav: Beer) => {
-    dispatch({ type: FavoriteActionTypes.ADD_TO_FAVORITES, payload: fav });
-    console.log(fav);
-  };
-
-  const removeFromFavorite = (fav: Beer) => {
-    dispatch({
-      type: FavoriteActionTypes.REMOVE_FROM_FAVORITES,
-      payload: fav.id,
-    });
-    console.log(fav);
-  };
+  const [favorite, addToFavorite, removeFromFavorite, dispatch] =
+    useContext(FavoriteContext);
 
   const { item } = props;
 

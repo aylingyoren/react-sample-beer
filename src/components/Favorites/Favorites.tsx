@@ -1,12 +1,13 @@
+import { useContext } from "react";
 import { useSearchPage } from "../../hooks/useSearchPage";
-import "./Favorites.css";
 import FavoriteCard from "../FavoriteCard";
-import { useTypedSelector } from "../../redux/useTypedSelector";
+import { FavoriteContext } from "../../API/FavoriteContext";
+import "./Favorites.css";
 
 function Favorites(): JSX.Element {
   const { loading, error } = useSearchPage("https://api.punkapi.com/v2/beers");
 
-  const favorite = useTypedSelector((state) => state.favorites);
+  const [favorite] = useContext(FavoriteContext);
 
   if (loading) {
     return <div> Loading... </div>;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useModifyFavorites } from "./hooks/useModifyFavorites";
+import { useModifyFavorites } from "./redux/hooks/useModifyFavorites";
 import { FavoriteContext } from "./API/FavoriteContext";
 import SearchPage from "./components/SearchPage";
 import Favorites from "./components/Favorites";
@@ -9,20 +9,24 @@ import BeerPage from "./components/BeerPage";
 import "./App.css";
 
 function App(): JSX.Element {
-  const { favorite, addToFavorite, removeFromFavorite, setFavorite } =
+  const { favorite, addToFavorite, removeFromFavorite, dispatch } =
     useModifyFavorites();
 
   useEffect(() => {
     const favorites = localStorage.getItem("favorites");
     if (favorites) {
-      setFavorite(JSON.parse(favorites));
+      // dispatch({
+      //   type: FavoriteActionTypes.ADD_TO_FAVORITES,
+      //   payload: JSON.parse(favorites),
+      // });
+      // setFavorite(JSON.parse(favorites));
     }
   }, []);
 
   return (
     <>
       <FavoriteContext.Provider
-        value={[favorite, addToFavorite, removeFromFavorite, setFavorite]}
+        value={[favorite, addToFavorite, removeFromFavorite, dispatch]}
       >
         <Router>
           <PageHeader />

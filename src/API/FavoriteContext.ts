@@ -4,8 +4,8 @@ import { Beer } from "./interface";
 type FavoriteContext = [
   Beer[],
   (item: Beer) => void,
-  (item: Beer, id: number) => void,
-  (items: Beer[]) => void
+  (item: Beer) => void,
+  (item: Beer) => void
 ];
 
 export const FavoriteContext = createContext<FavoriteContext>([

@@ -1,18 +1,16 @@
+import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSearchPage } from "../../hooks/useSearchPage";
+import { FavoriteContext } from "../../API/FavoriteContext";
 import "./BeerPage.css";
-import { useDispatch } from "react-redux";
-import { useTypedSelector } from "../../redux/useTypedSelector";
-import { Beer } from "../../API/interface";
-import { FavoriteActionTypes } from "../../redux/favoriteTypes";
 
 function BeerPage(): JSX.Element {
   const params = useParams();
   const beerId = params.beerId;
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
-  const favorite = useTypedSelector((state) => state.favorites);
+  const [favorite, addToFavorite, removeFromFavorite, dispatch] =
+    useContext(FavoriteContext);
 
   const {
     beerList: [beer],
@@ -27,19 +25,6 @@ function BeerPage(): JSX.Element {
   if (error) {
     return <div> Error occured </div>;
   }
-
-  const addToFavorite = (fav: Beer) => {
-    dispatch({ type: FavoriteActionTypes.ADD_TO_FAVORITES, payload: fav });
-    console.log(fav);
-  };
-
-  const removeFromFavorite = (fav: Beer) => {
-    dispatch({
-      type: FavoriteActionTypes.REMOVE_FROM_FAVORITES,
-      payload: fav.id,
-    });
-    console.log(fav);
-  };
 
   // Properties is beer's properties section.
   // It shows only ABV, IBU and EBC.
