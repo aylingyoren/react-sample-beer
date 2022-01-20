@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Beer } from "../../API/interface";
 import { FavoriteActionTypes } from "../favoriteTypes";

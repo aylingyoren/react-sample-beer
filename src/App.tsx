@@ -16,12 +16,13 @@ function App(): JSX.Element {
   useEffect(() => {
     const favorites = localStorage.getItem("favorites");
     if (favorites) {
-      console.log(favorites);
-      dispatch({
+      const parsedFavorites = JSON.parse(favorites);
+      for(let i = 0, il = parsedFavorites.length; i < il; ++i) {
+        dispatch({
         type: FavoriteActionTypes.ADD_TO_FAVORITES,
-        payload: JSON.parse(favorites),
+        payload: parsedFavorites[i],
       });
-      // setFavorite(JSON.parse(favorites));
+      }
     }
   }, []);
 
