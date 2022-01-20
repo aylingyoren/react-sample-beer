@@ -9,7 +9,7 @@ type FavoriteCardProps = {
 };
 
 function FavoriteCard(props: FavoriteCardProps): JSX.Element {
-  const [favorite, addToFavorite, removeFromFavorite, dispatch] =
+  const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
 
   const { item } = props;

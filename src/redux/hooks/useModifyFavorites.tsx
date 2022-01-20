@@ -10,11 +10,9 @@ export function useModifyFavorites() {
   const addToFavorite = (fav: Beer) => {
     localStorage.setItem("favorites", JSON.stringify([...favorite, fav]));
     dispatch({ type: FavoriteActionTypes.ADD_TO_FAVORITES, payload: fav });
-    console.log(fav);
   };
 
   const removeFromFavorite = (fav: Beer) => {
-    console.log(fav);
     localStorage.setItem(
       "favorites",
       JSON.stringify(favorite.filter((f) => f.id !== fav.id))
@@ -24,8 +22,6 @@ export function useModifyFavorites() {
       payload: fav.id,
     });
   };
-
-  console.log(favorite);
 
   return {
     favorite,

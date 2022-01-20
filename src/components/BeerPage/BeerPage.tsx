@@ -9,7 +9,7 @@ function BeerPage(): JSX.Element {
   const beerId = params.beerId;
   const navigate = useNavigate();
 
-  const [favorite, addToFavorite, removeFromFavorite, dispatch] =
+  const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
 
   const {
