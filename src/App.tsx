@@ -6,7 +6,7 @@ import SearchPage from "./components/SearchPage";
 import Favorites from "./components/Favorites";
 import PageHeader from "./components/PageHeader";
 import BeerPage from "./components/BeerPage";
-import { FavoriteActionTypes } from "./redux/favoriteTypes";
+import { FavoriteActionTypes } from "./redux/types/favoriteTypes";
 import "./App.css";
 
 function App(): JSX.Element {

@@ -2,7 +2,7 @@ import {
   FavoriteAction,
   FavoriteActionTypes,
   FavoriteState,
-} from "./favoriteTypes";
+} from "../types/favoriteTypes";
 
 const initialState: FavoriteState = {
   favorites: [],
@@ -26,5 +26,3 @@ export const favoriteReducer = (
       return state;
   }
 };
-
-export type RootState = ReturnType<typeof favoriteReducer>;

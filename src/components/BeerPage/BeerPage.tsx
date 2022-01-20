@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useSearchPage } from "../../hooks/useSearchPage";
 import { FavoriteContext } from "../../API/FavoriteContext";
+import { useDispatch } from "react-redux";
+import { useTypedSelector } from "../../redux/hooks/useTypedSelector";
+import { fetchBeers } from "../../redux/fetchBeersActionCreator";
 import "./BeerPage.css";
 
 function BeerPage(): JSX.Element {
+  const { beers: [beer], loading, error } = useTypedSelector(state => state.beers);
+  const dispatch = useDispatch();
+
   const params = useParams();
   const beerId = params.beerId;
   const navigate = useNavigate();
@@ -12,18 +17,16 @@ function BeerPage(): JSX.Element {
   const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
 
-  const {
-    beerList: [beer],
-    loading,
-    error,
-  } = useSearchPage(`https://api.punkapi.com/v2/beers/${beerId}`);
+    useEffect(() => {
+      dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
+    }, [])
 
   if (loading) {
     return <div> Loading... </div>;
   }
 
   if (error) {
-    return <div> Error occured </div>;
+    return <div> {error} </div>;
   }
 
   // Properties is beer's properties section.

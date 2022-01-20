@@ -1,4 +1,4 @@
-import { Beer } from "../API/interface";
+import { Beer } from "../../API/interface";
 
 export interface FavoriteState {
   favorites: Beer[];
