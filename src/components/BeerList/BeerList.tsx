@@ -3,7 +3,7 @@ import { Beer } from "../../API/interface";
 import BeerCard from "../BeerCard";
 import { useTypedSelector } from "../../redux/hooks/useTypedSelector";
 import { fetchBeers } from "../../redux/fetchBeersActionCreator";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks/useAppDispatch";
 import "./BeerList.css";
 
 type BeerListProps = {
@@ -11,13 +11,13 @@ type BeerListProps = {
 };
 
 function BeerList(props: BeerListProps): JSX.Element {
-  const { beers, loading, error } = useTypedSelector(state => state.beers);
-  const dispatch = useDispatch();
+  const { beers, loading, error } = useTypedSelector(state => state.beersReducer);
+  const dispatch = useAppDispatch();
 
   const { search } = props;
 
   useEffect(() => {
-    dispatch(fetchBeers("https://api.punkapi.com/v2/beers?page=2&per_page=80"));
+    dispatch(fetchBeers());
   }, []);
 
   if (loading) {

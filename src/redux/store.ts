@@ -1,6 +1,18 @@
-import { applyMiddleware, createStore } from "redux";
-import { rootReducer } from "./reducers/index";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import beersReducer from "./BeerSlice";
+import favoriteReducer from "./FavoritesSlice";
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const rootReducer = combineReducers({
+    beersReducer,
+    favoriteReducer
+});
+
+export const setupStore = () => {
+    return configureStore({
+        reducer: rootReducer
+    })
+};
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];

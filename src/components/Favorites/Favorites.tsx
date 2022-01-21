@@ -1,19 +1,19 @@
 import { useContext, useEffect } from "react";
 import FavoriteCard from "../FavoriteCard";
 import { FavoriteContext } from "../../API/FavoriteContext";
-import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../../redux/hooks/useTypedSelector";
 import { fetchBeers } from "../../redux/fetchBeersActionCreator";
+import { useAppDispatch } from "../../redux/hooks/useAppDispatch";
 import "./Favorites.css";
 
 function Favorites(): JSX.Element {
-  const { loading, error } = useTypedSelector(state => state.beers);
-  const dispatch = useDispatch();
+  const { loading, error } = useTypedSelector(state => state.beersReducer);
+  const dispatch = useAppDispatch();
 
   const [favorite] = useContext(FavoriteContext);
 
   useEffect(() => {
-    dispatch(fetchBeers("https://api.punkapi.com/v2/beers"));
+    dispatch(fetchBeers());
   }, []);
 
   if (loading) {

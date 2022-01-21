@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FavoriteContext } from "../../API/FavoriteContext";
-import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../../redux/hooks/useTypedSelector";
 import { fetchBeers } from "../../redux/fetchBeersActionCreator";
+import { useAppDispatch } from "../../redux/hooks/useAppDispatch";
 import "./BeerPage.css";
 
 function BeerPage(): JSX.Element {
-  const { beers: [beer], loading, error } = useTypedSelector(state => state.beers);
-  const dispatch = useDispatch();
+  const { beers: [beer], loading, error } = useTypedSelector(state => state.beersReducer);
+  const dispatch = useAppDispatch();
 
   const params = useParams();
   const beerId = params.beerId;
@@ -18,7 +18,8 @@ function BeerPage(): JSX.Element {
     useContext(FavoriteContext);
 
     useEffect(() => {
-      dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
+      dispatch(fetchBeers());
+      // dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
     }, [])
 
   if (loading) {

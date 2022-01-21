@@ -5,11 +5,11 @@ import { useTypedSelector } from "./useTypedSelector";
 
 export function useModifyFavorites() {
   const dispatch = useDispatch();
-  const favorite = useTypedSelector((state) => state.favorites.favorites);
+  const favorite = useTypedSelector((state) => state.favoriteReducer.favorites);
 
   const addToFavorite = (fav: Beer) => {
     localStorage.setItem("favorites", JSON.stringify([...favorite, fav]));
-    dispatch({ type: FavoriteActionTypes.ADD_TO_FAVORITES, payload: fav });
+    dispatch({ type: addToFavorite, payload: fav });
   };
 
   const removeFromFavorite = (fav: Beer) => {
@@ -18,8 +18,7 @@ export function useModifyFavorites() {
       JSON.stringify(favorite.filter((f) => f.id !== fav.id))
     );
     dispatch({
-      type: FavoriteActionTypes.REMOVE_FROM_FAVORITES,
-      payload: fav.id,
+      type: removeFromFavorite, payload: fav.id,
     });
   };
 
