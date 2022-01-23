@@ -1,11 +1,10 @@
-import { useDispatch } from "react-redux";
 import { Beer } from "../../API/interface";
-import { FavoriteActionTypes } from "../types/favoriteTypes";
+import { useAppDispatch } from "./useAppDispatch";
 import { useTypedSelector } from "./useTypedSelector";
 
 export function useModifyFavorites() {
-  const dispatch = useDispatch();
-  const favorite = useTypedSelector((state) => state.favoriteReducer.favorites);
+  const dispatch = useAppDispatch();
+  const favorite = useTypedSelector((state) => state.favorites.favorites);
 
   const addToFavorite = (fav: Beer) => {
     localStorage.setItem("favorites", JSON.stringify([...favorite, fav]));
@@ -18,7 +17,8 @@ export function useModifyFavorites() {
       JSON.stringify(favorite.filter((f) => f.id !== fav.id))
     );
     dispatch({
-      type: removeFromFavorite, payload: fav.id,
+      type: removeFromFavorite,
+      payload: fav.id,
     });
   };
 

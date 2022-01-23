@@ -11,7 +11,7 @@ type BeerListProps = {
 };
 
 function BeerList(props: BeerListProps): JSX.Element {
-  const { beers, loading, error } = useTypedSelector(state => state.beersReducer);
+  const { beers, loading, error } = useTypedSelector((state) => state.beers);
   const dispatch = useAppDispatch();
 
   const { search } = props;

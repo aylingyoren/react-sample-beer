@@ -7,7 +7,11 @@ import { useAppDispatch } from "../../redux/hooks/useAppDispatch";
 import "./BeerPage.css";
 
 function BeerPage(): JSX.Element {
-  const { beers: [beer], loading, error } = useTypedSelector(state => state.beersReducer);
+  const {
+    beers: [beer],
+    loading,
+    error,
+  } = useTypedSelector((state) => state.beers);
   const dispatch = useAppDispatch();
 
   const params = useParams();
@@ -17,10 +21,10 @@ function BeerPage(): JSX.Element {
   const [favorite, addToFavorite, removeFromFavorite] =
     useContext(FavoriteContext);
 
-    useEffect(() => {
-      dispatch(fetchBeers());
-      // dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
-    }, [])
+  useEffect(() => {
+    dispatch(fetchBeers());
+    // dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
+  }, []);
 
   if (loading) {
     return <div> Loading... </div>;

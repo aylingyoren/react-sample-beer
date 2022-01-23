@@ -2,24 +2,26 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Beer } from "../API/interface";
 
 export interface FavoriteState {
-    favorites: Beer[];
+  favorites: Beer[];
 }
 
 const initialState: FavoriteState = {
-    favorites: [],
+  favorites: [],
 };
 
 export const favoriteSlice = createSlice({
-    name: 'favorites',
-    initialState,
-    reducers: {
-        addToFavorite(state, action: PayloadAction<Beer>) {
-            state.favorites.push(action.payload);
-        },
-        removeFromFavorite(state, action: PayloadAction<Beer | number>) {
-            state.favorites.filter((favorite) => favorite.id !== action.payload);
-        },
-    }
+  name: "favorites",
+  initialState,
+  reducers: {
+    addToFavorite(state, action: PayloadAction<Beer>) {
+      state.favorites.concat(action.payload);
+    },
+    removeFromFavorite(state, action: PayloadAction<Beer | number>) {
+      state.favorites = state.favorites.filter(
+        (favorite) => favorite.id !== action.payload
+      );
+    },
+  },
 });
 
 export default favoriteSlice.reducer;
@@ -42,4 +44,3 @@ export default favoriteSlice.reducer;
 //         return state;
 //     }
 //   };
-  

@@ -3,16 +3,16 @@ import beersReducer from "./BeerSlice";
 import favoriteReducer from "./FavoritesSlice";
 
 const rootReducer = combineReducers({
-    beersReducer,
-    favoriteReducer
+  beers: beersReducer,
+  favorites: favoriteReducer,
 });
 
 export const setupStore = () => {
-    return configureStore({
-        reducer: rootReducer
-    })
+  return configureStore({
+    reducer: rootReducer,
+  });
 };
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = AppStore["dispatch"];

@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../redux/hooks/useAppDispatch";
 import "./Favorites.css";
 
 function Favorites(): JSX.Element {
-  const { loading, error } = useTypedSelector(state => state.beersReducer);
+  const { loading, error } = useTypedSelector((state) => state.beers);
   const dispatch = useAppDispatch();
 
   const [favorite] = useContext(FavoriteContext);
