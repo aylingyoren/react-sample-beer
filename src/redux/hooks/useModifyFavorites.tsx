@@ -1,4 +1,5 @@
 import { Beer } from "../../API/interface";
+import { addFavorite, removeFavorite } from "../FavoritesSlice";
 import { useAppDispatch } from "./useAppDispatch";
 import { useTypedSelector } from "./useTypedSelector";
 
@@ -8,7 +9,7 @@ export function useModifyFavorites() {
 
   const addToFavorite = (fav: Beer) => {
     localStorage.setItem("favorites", JSON.stringify([...favorite, fav]));
-    dispatch({ type: addToFavorite, payload: fav });
+    dispatch({ type: addFavorite, payload: fav });
   };
 
   const removeFromFavorite = (fav: Beer) => {
@@ -17,7 +18,7 @@ export function useModifyFavorites() {
       JSON.stringify(favorite.filter((f) => f.id !== fav.id))
     );
     dispatch({
-      type: removeFromFavorite,
+      type: removeFavorite,
       payload: fav.id,
     });
   };

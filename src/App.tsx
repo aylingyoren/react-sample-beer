@@ -6,6 +6,7 @@ import SearchPage from "./components/SearchPage";
 import Favorites from "./components/Favorites";
 import PageHeader from "./components/PageHeader";
 import BeerPage from "./components/BeerPage";
+import { addFavorite } from "./redux/FavoritesSlice";
 import "./App.css";
 
 function App(): JSX.Element {
@@ -18,7 +19,7 @@ function App(): JSX.Element {
       const parsedFavorites = JSON.parse(favorites);
       for (let i = 0, il = parsedFavorites.length; i < il; ++i) {
         dispatch({
-          type: addToFavorite,
+          type: addFavorite,
           payload: parsedFavorites[i],
         });
       }
