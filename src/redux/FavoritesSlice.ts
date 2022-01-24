@@ -13,13 +13,22 @@ export const favoriteSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addToFavorite(state, action: PayloadAction<Beer>) {
-      state.favorites.concat(action.payload);
+    addToFavorite: (state, action: PayloadAction<Beer>) => {
+      // const newState = state.favorites.concat(action.payload);
+      // return newState;
+      return { ...state, favorites: [...state.favorites, action.payload] };
     },
-    removeFromFavorite(state, action: PayloadAction<Beer | number>) {
-      state.favorites = state.favorites.filter(
-        (favorite) => favorite.id !== action.payload
-      );
+    removeFromFavorite: (state, action: PayloadAction<Beer | number>) => {
+      // const newState = state.favorites.filter(
+      //   (favorite) => favorite.id !== action.payload
+      // );
+      // return newState;
+      return {
+                  ...state,
+                  favorites: state.favorites.filter(
+                    (favorite) => favorite.id !== action.payload
+                  ),
+                };
     },
   },
 });

@@ -22,7 +22,7 @@ function BeerPage(): JSX.Element {
     useContext(FavoriteContext);
 
   useEffect(() => {
-    dispatch(fetchBeers());
+    dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
     // dispatch(fetchBeers(`https://api.punkapi.com/v2/beers/${beerId}`));
   }, []);
 

@@ -17,7 +17,7 @@ function BeerList(props: BeerListProps): JSX.Element {
   const { search } = props;
 
   useEffect(() => {
-    dispatch(fetchBeers());
+    dispatch(fetchBeers("https://api.punkapi.com/v2/beers?page=2&per_page=80"));
   }, []);
 
   if (loading) {

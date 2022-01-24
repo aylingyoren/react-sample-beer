@@ -4,11 +4,9 @@ import { Beer } from "../API/interface";
 
 export const fetchBeers = createAsyncThunk(
   "beers/fetchAll",
-  async (_, thunkAPI) => {
+  async (url: string, thunkAPI) => {
     try {
-      const response = await axios.get<Beer[]>(
-        "https://api.punkapi.com/v2/beers?page=2&per_page=80"
-      );
+      const response = await axios.get<Beer[]>(url);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue("Error occured while fetching beers.");
